@@ -26,5 +26,11 @@ namespace MoneyTemplateMVC.Controllers
 
             return View();
         }
+
+        [ChildActionOnly]
+        public ActionResult List()
+        {
+            return View();
+        }
     }
 }
