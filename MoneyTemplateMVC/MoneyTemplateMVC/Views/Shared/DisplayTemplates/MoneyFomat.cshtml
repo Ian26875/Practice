@@ -1,7 +1,10 @@
-﻿
-@{
-    ViewBag.Title = "MoneyFomat";
+﻿@model decimal?
+
+@if (Model.HasValue)
+{
+    @Model.Value.ToString("N0");
 }
-
-<h2>MoneyFomat</h2>
-
+else
+{
+    <span>無資料</span>
+}

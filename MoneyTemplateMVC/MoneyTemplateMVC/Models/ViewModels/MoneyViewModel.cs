@@ -9,7 +9,6 @@ namespace MoneyTemplateMVC.Models.ViewModels
     public class MoneyViewModel
     {
         [Display(Name = "類別")]
-        [DisplayFormat(NullDisplayText = "找不到類別")]
         public string Category { get; set; }
 
 
@@ -18,7 +17,6 @@ namespace MoneyTemplateMVC.Models.ViewModels
 
 
         [Display(Name = "金額")]
-        [DisplayFormat(DataFormatString = "{0:N0}")]
         public decimal Amount { get; set; }
     }
 }
