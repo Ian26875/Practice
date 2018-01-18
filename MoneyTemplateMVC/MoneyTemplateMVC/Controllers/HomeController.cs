@@ -37,7 +37,7 @@ namespace MoneyTemplateMVC.Controllers
 
         private IEnumerable<MoneyViewModel> GetMoneyViewModel()
         {
-            HashSet<MoneyViewModel> source = new HashSet<MoneyViewModel>();
+            List<MoneyViewModel> source = new List<MoneyViewModel>();
             Random random = new Random();
             for (int i = 0; i < 100; i++)
             {
@@ -45,7 +45,7 @@ namespace MoneyTemplateMVC.Controllers
                 {
                     Amount = random.Next(0, 1500),
                     Category = random.Next(0, 2) == 1 ? "支出" : "收入",
-                    CreateTime = new DateTime(2017, 12, random.Next(1, 31))
+                    CreateTime = new DateTime(2017, 12, 1).AddDays(random.Next(0,50))
                 };
 
                 source.Add(item);
