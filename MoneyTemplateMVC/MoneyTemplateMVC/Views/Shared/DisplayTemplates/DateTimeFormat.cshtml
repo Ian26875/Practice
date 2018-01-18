@@ -1,7 +1,10 @@
-﻿
-@{
-    ViewBag.Title = "DateTimeFormat";
+﻿@model DateTime?
+
+@if (Model.HasValue)
+{
+    @Model.Value.ToString("yyyy-MM-dd");
 }
-
-<h2>DateTimeFormat</h2>
-
+else
+{
+    <span>無資料</span>
+}

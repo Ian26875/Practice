@@ -14,7 +14,6 @@ namespace MoneyTemplateMVC.Models.ViewModels
 
 
         [Display(Name = "日期")]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime CreateTime { get; set; }
 
 
