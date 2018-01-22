@@ -152,6 +152,8 @@
     </Compile>
     <Compile Include="Models\ViewModels\MoneyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DB\ConnectionFactory.cs" />
+    <Compile Include="Repositories\DB\IConnectionFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\SkillTreeHomework.mdf" />
