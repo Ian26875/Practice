@@ -21,7 +21,15 @@ namespace MoneyTemplateMVC.Services
 
         public IList<MoneyViewModel> GetAll()
         {
-            throw new NotImplementedException();
+            var source = this._accountBookRepository.GetAll();
+            var viewModels = source.Select(x =>
+            new MoneyViewModel
+            {
+                Amount = x.Amounttt,
+                Category = x.Categoryyy == 1 ? "支出" : "收入",
+                CreateTime = x.Dateee
+            }).ToList();
+            return viewModels;
         }
     }
 }
