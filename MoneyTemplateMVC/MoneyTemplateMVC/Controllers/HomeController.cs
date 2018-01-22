@@ -1,4 +1,5 @@
 ﻿using MoneyTemplateMVC.Models.ViewModels;
+using MoneyTemplateMVC.Services.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,15 @@ namespace MoneyTemplateMVC.Controllers
 {
     public class HomeController : Controller
     {
+
+
+        private IAccountService _accountService;
+
+        public HomeController(IAccountService accountService)
+        {
+            this._accountService = accountService;
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -31,26 +41,9 @@ namespace MoneyTemplateMVC.Controllers
         [ChildActionOnly]
         public ActionResult List()
         {
-            var source = GetMoneyViewModel();
+            var source = _accountService.GetAll();
             return View(source);
         }
-
-        private IEnumerable<MoneyViewModel> GetMoneyViewModel()
-        {
-            List<MoneyViewModel> source = new List<MoneyViewModel>();
-            Random random = new Random();
-            for (int i = 0; i < 100; i++)
-            {
-                var item = new MoneyViewModel
-                {
-                    Amount = random.Next(0, 1500),
-                    Category = random.Next(0, 2) == 1 ? "支出" : "收入",
-                    CreateTime = new DateTime(2017, 12, 1).AddDays(random.Next(0,50))
-                };
-
-                source.Add(item);
-            }
-            return source;
-        }
+     
     }
 }
