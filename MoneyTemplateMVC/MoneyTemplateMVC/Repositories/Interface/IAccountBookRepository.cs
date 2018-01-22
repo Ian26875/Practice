@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoneyTemplateMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace MoneyTemplateMVC.Repositories.Interface
 {
     public interface IAccountBookRepository
     {
-       
+        IList<AccountBook> GetAll();
     }
 }
