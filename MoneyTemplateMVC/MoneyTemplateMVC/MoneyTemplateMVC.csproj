@@ -158,6 +158,8 @@
     <Compile Include="Repositories\DB\IConnectionFactory.cs" />
     <Compile Include="Repositories\Interface\IAccountBookRepository.cs" />
     <Compile Include="Repositories\Interface\RepositoryBase.cs" />
+    <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\Interface\IAccountService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\SkillTreeHomework.mdf" />
@@ -205,7 +207,6 @@
     <Content Include="Views\Shared\DisplayTemplates\MoneyFomat.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\Interface\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>

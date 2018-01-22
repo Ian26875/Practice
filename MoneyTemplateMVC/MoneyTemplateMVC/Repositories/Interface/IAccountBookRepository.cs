@@ -9,6 +9,6 @@ namespace MoneyTemplateMVC.Repositories.Interface
 {
     public interface IAccountBookRepository
     {
-        IList<AccountBook> GetAll();
+        IEnumerable<AccountBook> GetAll();
     }
 }

@@ -15,7 +15,7 @@ namespace MoneyTemplateMVC.Repositories
         {
         }
 
-        public IList<AccountBook> GetAll()
+        public IEnumerable<AccountBook> GetAll()
         {
             const string sql = "SELECT * FROM AccountBook";
             var source = Connection.Query<AccountBook>(sql);
