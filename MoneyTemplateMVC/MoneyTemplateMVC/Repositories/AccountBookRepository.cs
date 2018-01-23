@@ -11,7 +11,8 @@ namespace MoneyTemplateMVC.Repositories
 {
     public class AccountBookRepository : RepositoryBase, IAccountBookRepository
     {
-        public AccountBookRepository(IDbConnection connection) : base(connection)
+        public AccountBookRepository(IDbConnection connection)
+            : base(connection)
         {
         }
 
