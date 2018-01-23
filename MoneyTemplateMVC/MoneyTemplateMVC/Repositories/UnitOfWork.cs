@@ -15,6 +15,8 @@ namespace MoneyTemplateMVC.Repositories
         public UnitOfWork(IConnectionFactory connectionFactory)
         {
             this._connectionFactory = connectionFactory;
+
+            this.Connection = _connectionFactory.Create();
         }
 
         public void BeginTransaction()
