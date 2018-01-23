@@ -19,7 +19,7 @@ namespace MoneyTemplateMVC.Repositories
         {
             const string sql = "SELECT * FROM AccountBook";
             var source = DbConnection.Query<AccountBook>(sql);
-            return source.ToList();
+            return source;
         }
     }
 }

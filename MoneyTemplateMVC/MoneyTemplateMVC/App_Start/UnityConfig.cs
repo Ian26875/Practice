@@ -67,10 +67,11 @@ namespace MoneyTemplateMVC
 
             var connectionString = WebConfigurationManager.ConnectionStrings["SkillTreeHomeWork"].ToString();
             var providerName = WebConfigurationManager.ConnectionStrings["SkillTreeHomeWork"].ProviderName;
+
             container.RegisterType<IConnectionFactory, ConnectionFactory>
             (
-              new TransientLifetimeManager(),
-              new InjectionConstructor(connectionString, providerName)
+                new TransientLifetimeManager(),
+                new InjectionConstructor(connectionString, providerName)
             );
 
         }
