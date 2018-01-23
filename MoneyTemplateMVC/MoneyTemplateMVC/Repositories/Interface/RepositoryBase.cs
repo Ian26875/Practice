@@ -11,22 +11,31 @@ namespace MoneyTemplateMVC.Repositories.Interface
     /// </summary>
     public abstract class RepositoryBase
     {
-
         /// <summary>
-        /// Gets or sets the connection.
+        /// Gets or sets the database connection.
         /// </summary>
         /// <value>
-        /// The connection.
+        /// The database connection.
         /// </value>
-        protected IDbConnection Connection { get; set; }
+        protected IDbConnection DbConnection { get; set; }
+
+        /// <summary>
+        /// Gets or sets the unit of work.
+        /// </summary>
+        /// <value>
+        /// The unit of work.
+        /// </value>
+        protected IUnitOfWork _unitOfWork { get; set; }
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RepositoryBase"/> class.
         /// </summary>
-        /// <param name="connection">The connection.</param>
-        public RepositoryBase(IDbConnection connection)
+        /// <param name="unitOfWork">The unit of work.</param>
+        public RepositoryBase(IUnitOfWork unitOfWork)
         {
-            this.Connection = connection;
+            this._unitOfWork = unitOfWork;
+            this.DbConnection = _unitOfWork.Connection;
         }
     }
 }

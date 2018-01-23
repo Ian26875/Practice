@@ -11,7 +11,7 @@ namespace MoneyTemplateMVC.Repositories.Interface
     {
         IDbTransaction Transaction { get; }
         IDbConnection Connection { get; }
-        IDbTransaction BeginTransaction();
+        void BeginTransaction();
         void Commit();
         void Rollback();
     }
