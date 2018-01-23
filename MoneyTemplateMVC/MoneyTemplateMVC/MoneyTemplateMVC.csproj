@@ -157,6 +157,7 @@
     <Compile Include="Repositories\DB\ConnectionFactory.cs" />
     <Compile Include="Repositories\DB\IConnectionFactory.cs" />
     <Compile Include="Repositories\Interface\IAccountBookRepository.cs" />
+    <Compile Include="Repositories\Interface\IUnitOfWork.cs" />
     <Compile Include="Repositories\Interface\RepositoryBase.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\Interface\IAccountService.cs" />
