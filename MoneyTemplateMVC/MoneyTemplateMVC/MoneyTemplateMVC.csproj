@@ -241,6 +241,7 @@
     <Content Include="Views\Shared\DisplayTemplates\MoneyFomat.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
