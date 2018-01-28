@@ -9,17 +9,18 @@ using Dapper;
 
 namespace MoneyTemplateMVC.Repositories
 {
-    public class AccountBookRepository :RepositoryBase, IAccountBookRepository
+    public class AccountBookRepository : RepositoryBase, IAccountBookRepository
     {
-        public AccountBookRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
+        public AccountBookRepository(IUnitOfWork unitOfWork)
+            : base(unitOfWork)
         {
         }
 
-        public IEnumerable<AccountBook> GetAll()
+        public IList<AccountBook> GetAll()
         {
             const string sql = "SELECT * FROM AccountBook";
             var source = DbConnection.Query<AccountBook>(sql);
-            return source;
+            return source.ToList();
         }
     }
 }
