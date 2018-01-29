@@ -199,6 +199,7 @@
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\Interface\IAccountService.cs" />
+    <Compile Include="Validators\DateTimeRangeAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\SkillTreeHomework.mdf" />
