@@ -6,8 +6,14 @@ using System.Web;
 
 namespace MoneyTemplateMVC.Repositories
 {
-    public class GeneralRepository<T> : IGeneralRepository<T> where T : class, new()
+    public class GeneralRepository<T> :RepositoryBase, IGeneralRepository<T> where T : class, new()
     {
+        public GeneralRepository(IUnitOfWork unitOfWork)
+            : base(unitOfWork)
+        {
+
+        }
+
         public void Delete(T entity)
         {
             throw new NotImplementedException();
