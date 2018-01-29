@@ -20,17 +20,6 @@ namespace MoneyTemplateMVC.Services
             this._accountBookRepository = accountBookRepository;
         }
 
-        public void CreateBilling(CategoryType category, decimal amount,string remark)
-        {
-            var entity = new AccountBook
-            {
-                Amounttt = Convert.ToInt32(amount),
-                Categoryyy = (int)category,
-                Dateee = DateTime.Now,
-                Remarkkk= remark
-            };
-            _accountBookRepository.Insert(entity);
-        }
 
         public IList<MoneyViewModel> GetAll()
         {
@@ -39,7 +28,7 @@ namespace MoneyTemplateMVC.Services
             new MoneyViewModel
             {
                 Amount = x.Amounttt,
-                Category = (CategoryType)System.Enum.Parse(typeof(CategoryType), x.Categoryyy.ToString()),
+                Category = (CategoryType)System.Enum.Parse(typeof(CategoryType),x.Categoryyy.ToString()),
                 CreateTime = x.Dateee
             }).ToList();
             return viewModels;
