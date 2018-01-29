@@ -1,3 +1,17 @@
-﻿@helper DispalyCategoryColor(string name) {
+﻿@helper DispalyCategoryColor(MoneyTemplateMVC.Enum.CategoryType categoryType)
+    {
+
+        switch (categoryType)
+        {
+            case MoneyTemplateMVC.Enum.CategoryType.Expend:       
+                <label style="color:red">支出</label>
+                break;
+            case MoneyTemplateMVC.Enum.CategoryType.Income:
+                <span style="color:blue">收入</span>
+                break;
+            default:
+                break;
+        }
+
 
 }
