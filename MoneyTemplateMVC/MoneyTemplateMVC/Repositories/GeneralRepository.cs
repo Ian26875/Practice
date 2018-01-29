@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Dapper;
+using DapperExtensions;
 
 namespace MoneyTemplateMVC.Repositories
 {
@@ -16,27 +18,29 @@ namespace MoneyTemplateMVC.Repositories
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            DbConnection.Delete(entity);
         }
 
         public T Find(object keyValues)
         {
-            throw new NotImplementedException();
+            var source=DbConnection.Get<T>(keyValues);
+            return source;
         }
 
         public IList<T> GetAll()
         {
-            throw new NotImplementedException();
+            var source=DbConnection.GetList<T>();
+            return source.ToList();
         }
 
         public void Insert(T entity)
         {
-            throw new NotImplementedException();
+            DbConnection.Insert(entity);
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            DbConnection.Update(entity);
         }
     }
 }
