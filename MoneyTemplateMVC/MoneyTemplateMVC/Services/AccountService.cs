@@ -1,4 +1,5 @@
 ﻿using MoneyTemplateMVC.Enum;
+using MoneyTemplateMVC.Models;
 using MoneyTemplateMVC.Models.ViewModels;
 using MoneyTemplateMVC.Repositories.Interface;
 using MoneyTemplateMVC.Services.Interface;
@@ -13,8 +14,8 @@ namespace MoneyTemplateMVC.Services
     {
 
 
-        private IAccountBookRepository _accountBookRepository;
-        public AccountService(IAccountBookRepository accountBookRepository)
+        private IGeneralRepository<AccountBook> _accountBookRepository;
+        public AccountService(IGeneralRepository<AccountBook> accountBookRepository)
         {
             this._accountBookRepository = accountBookRepository;
         }

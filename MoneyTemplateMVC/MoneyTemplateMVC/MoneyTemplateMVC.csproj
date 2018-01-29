@@ -189,11 +189,9 @@
     <Compile Include="Models\AccountBook.cs" />
     <Compile Include="Models\ViewModels\MoneyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\AccountBookRepository.cs" />
     <Compile Include="Repositories\DB\ConnectionFactory.cs" />
     <Compile Include="Repositories\DB\IConnectionFactory.cs" />
     <Compile Include="Repositories\GeneralRepository.cs" />
-    <Compile Include="Repositories\Interface\IAccountBookRepository.cs" />
     <Compile Include="Repositories\Interface\IGeneralRepository.cs" />
     <Compile Include="Repositories\Interface\IUnitOfWork.cs" />
     <Compile Include="Repositories\Interface\RepositoryBase.cs" />
