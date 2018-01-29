@@ -26,7 +26,8 @@
                     @serialNumber
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Category)
+                    @*@Html.DisplayFor(modelItem => item.Category)*@
+                    @Amount.DispalyCategoryColor(item.Category)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CreateTime, "DateTimeFormat")

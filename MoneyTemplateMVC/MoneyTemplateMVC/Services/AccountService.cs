@@ -1,4 +1,5 @@
-﻿using MoneyTemplateMVC.Models.ViewModels;
+﻿using MoneyTemplateMVC.Enum;
+using MoneyTemplateMVC.Models.ViewModels;
 using MoneyTemplateMVC.Repositories.Interface;
 using MoneyTemplateMVC.Services.Interface;
 using System;
@@ -26,7 +27,7 @@ namespace MoneyTemplateMVC.Services
             new MoneyViewModel
             {
                 Amount = x.Amounttt,
-                Category = x.Categoryyy == 1 ? "支出" : "收入",
+                Category = (CategoryType)System.Enum.Parse(typeof(CategoryType),x.Categoryyy.ToString()),
                 CreateTime = x.Dateee
             }).ToList();
             return viewModels;

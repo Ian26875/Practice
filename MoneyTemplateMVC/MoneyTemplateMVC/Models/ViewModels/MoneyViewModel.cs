@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using MoneyTemplateMVC.Enum;
 
 namespace MoneyTemplateMVC.Models.ViewModels
 {
     public class MoneyViewModel
     {
         [Display(Name = "類別")]
-        public string Category { get; set; }
+        public CategoryType Category { get; set; }
 
 
         [Display(Name = "日期")]
