@@ -190,6 +190,7 @@
     <Compile Include="Repositories\DB\ConnectionFactory.cs" />
     <Compile Include="Repositories\DB\IConnectionFactory.cs" />
     <Compile Include="Repositories\Interface\IAccountBookRepository.cs" />
+    <Compile Include="Repositories\Interface\IGeneralRepository.cs" />
     <Compile Include="Repositories\Interface\IUnitOfWork.cs" />
     <Compile Include="Repositories\Interface\RepositoryBase.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
