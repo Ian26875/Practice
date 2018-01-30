@@ -41,23 +41,27 @@ namespace MoneyTemplateMVC.Controllers
         [ChildActionOnly]
         public ActionResult List()
         {
-            var source = _accountService.GetAll();
+            var source = _accountService.GetAll().OrderBy(x=>x.CreateTime);
             return View(source);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(MoneyCreateViewModel viewModel)
         {
             if (ModelState.IsValid == false)
             {
                 return View("Index",viewModel);
             }
-            return View("Index");
+            this._accountService.CreateMoneyBilling(viewModel);
+
+            return RedirectToAction("Index");
         }
 
-        public ActionResult IsNowAfter(DateTime createTime)
+        [HttpGet]
+        public ActionResult IsNowBefore(DateTime createTime)
         {
-            bool isValidate = DateTime.Compare(DateTime.Now, createTime) < 0;
+            bool isValidate = DateTime.Compare(DateTime.Now, createTime) >= 0;
             return Json(isValidate, JsonRequestBehavior.AllowGet);
         }
     }

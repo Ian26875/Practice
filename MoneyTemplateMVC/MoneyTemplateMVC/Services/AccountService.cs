@@ -35,7 +35,21 @@ namespace MoneyTemplateMVC.Services
         /// <exception cref="NotImplementedException"></exception>
         public void CreateMoneyBilling(MoneyCreateViewModel viewModel)
         {
-            throw new NotImplementedException();
+            if (viewModel == null)
+            {
+                throw new ArgumentNullException(nameof(viewModel));
+            }
+            var item = new AccountBook
+            {
+                Amounttt = Convert.ToInt32(viewModel.Amount),
+                Categoryyy = (int)viewModel.Category,
+                Dateee = viewModel.CreateTime,
+                Remarkkk = viewModel.Remark
+
+            };
+            this._accountBookRepository.Insert(item);
+
+
         }
 
         /// <summary>
@@ -49,7 +63,7 @@ namespace MoneyTemplateMVC.Services
             new MoneyViewModel
             {
                 Amount = x.Amounttt,
-                Category = (CategoryType)System.Enum.Parse(typeof(CategoryType),x.Categoryyy.ToString()),
+                Category = (CategoryType)System.Enum.Parse(typeof(CategoryType), x.Categoryyy.ToString()),
                 CreateTime = x.Dateee
             }).ToList();
             return viewModels;
