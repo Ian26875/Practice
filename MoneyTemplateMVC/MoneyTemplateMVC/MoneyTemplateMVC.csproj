@@ -186,6 +186,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\DisplayColorNameHelper.cs" />
     <Compile Include="Models\AccountBook.cs" />
     <Compile Include="Models\ViewModels\MoneyCreateViewModel.cs" />
     <Compile Include="Models\ViewModels\MoneyViewModel.cs" />
@@ -248,7 +249,6 @@
     <Content Include="Views\Shared\DisplayTemplates\MoneyFomat.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Helper\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
