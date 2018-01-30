@@ -247,7 +247,6 @@
     <Content Include="Views\Shared\DisplayTemplates\MoneyFomat.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Validators\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
