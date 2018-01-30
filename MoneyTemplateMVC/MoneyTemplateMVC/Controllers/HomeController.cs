@@ -44,6 +44,16 @@ namespace MoneyTemplateMVC.Controllers
             var source = _accountService.GetAll();
             return View(source);
         }
-     
+
+        [HttpPost]
+        public ActionResult Create(MoneyCreateViewModel viewModel)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return View("Index",viewModel);
+            }
+            return View("Index");
+        }
+
     }
 }
