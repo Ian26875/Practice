@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MoneyTemplateMVC.Models.ViewModels
 {
@@ -13,7 +14,7 @@ namespace MoneyTemplateMVC.Models.ViewModels
         [Display(Name = "類別")]
         public CategoryType Category { get; set; }
 
-        [OnlyAllowNowAfter]
+        [Remote("IsNowAfter","Home", ErrorMessage ="輸入日期必須大於今天")]
         [Display(Name = "日期")]
         public DateTime CreateTime { get; set; }
 
