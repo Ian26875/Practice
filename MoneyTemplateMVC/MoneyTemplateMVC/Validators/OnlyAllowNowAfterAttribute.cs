@@ -13,8 +13,8 @@ namespace MoneyTemplateMVC.Validators
             if (value is DateTime)
             {
                 var dateTime = Convert.ToDateTime(value);
-                return DateTime.Now.Year <= dateTime.Year
-                    && DateTime.Now.DayOfYear <= dateTime.DayOfYear;
+                bool isValidate = DateTime.Compare(DateTime.Now, dateTime) < 0;
+                return isValidate;
             }
             return base.IsValid(value);
         }

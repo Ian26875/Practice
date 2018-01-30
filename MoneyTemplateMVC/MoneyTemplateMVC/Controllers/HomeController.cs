@@ -55,10 +55,9 @@ namespace MoneyTemplateMVC.Controllers
             return View("Index");
         }
 
-        public ActionResult IsNowAfter(DateTime dateTime)
+        public ActionResult IsNowAfter(DateTime createTime)
         {
-            bool isValidate = DateTime.Now.Year <= dateTime.Year
-                    && DateTime.Now.DayOfYear <= dateTime.DayOfYear;
+            bool isValidate = DateTime.Compare(DateTime.Now, createTime) < 0;
             return Json(isValidate, JsonRequestBehavior.AllowGet);
         }
     }
