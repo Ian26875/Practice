@@ -199,7 +199,6 @@
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\Interface\IAccountService.cs" />
-    <Compile Include="Validators\OnlyAllowNowAfterAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\SkillTreeHomework.mdf" />
@@ -248,6 +247,7 @@
     <Content Include="Views\Shared\DisplayTemplates\MoneyFomat.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Validators\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
