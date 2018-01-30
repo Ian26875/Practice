@@ -41,7 +41,7 @@ namespace MoneyTemplateMVC.Controllers
         [ChildActionOnly]
         public ActionResult List()
         {
-            var source = _accountService.GetAll().OrderBy(x=>x.CreateTime);
+            var source = _accountService.GetAll().OrderBy(x => x.CreateTime);
             return View(source);
         }
 
@@ -51,11 +51,13 @@ namespace MoneyTemplateMVC.Controllers
         {
             if (ModelState.IsValid == false)
             {
-                return View("Index",viewModel);
+                return View("Index", viewModel);
             }
             this._accountService.CreateMoneyBilling(viewModel);
 
-            return RedirectToAction("Index");
+            var source = this._accountService.GetAll().OrderBy(x=>x.CreateTime);
+
+            return View("List", source);
         }
 
         [HttpGet]
