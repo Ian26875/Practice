@@ -59,9 +59,9 @@ namespace MoneyTemplateMVC.Controllers
         }
 
         [HttpGet]
-        public ActionResult IsNowBefore(DateTime createTime)
+        public ActionResult IsTodayBefore(DateTime createTime)
         {
-            bool isValidate = DateTime.Compare(DateTime.Now, createTime) >= 0;
+            bool isValidate = DateTime.Compare(DateTime.Today, createTime) >= 0;
             return Json(isValidate, JsonRequestBehavior.AllowGet);
         }
     }
