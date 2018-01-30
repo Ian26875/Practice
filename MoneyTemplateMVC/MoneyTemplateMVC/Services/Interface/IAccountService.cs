@@ -10,5 +10,6 @@ namespace MoneyTemplateMVC.Services.Interface
     public interface IAccountService
     {
         IList<MoneyViewModel> GetAll();
+        void CreateMoneyBilling(MoneyCreateViewModel viewModel);
     }
 }
