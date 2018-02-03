@@ -65,7 +65,9 @@ namespace MoneyTemplateMVC.Services
                 Amount = x.Amounttt,
                 Category = (CategoryType)System.Enum.Parse(typeof(CategoryType), x.Categoryyy.ToString()),
                 CreateTime = x.Dateee
-            }).ToList();
+            })
+            .OrderBy(x => x.CreateTime)
+            .ToList();
             return viewModels;
         }
     }

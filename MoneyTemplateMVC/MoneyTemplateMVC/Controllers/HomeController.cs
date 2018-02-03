@@ -41,7 +41,7 @@ namespace MoneyTemplateMVC.Controllers
         [ChildActionOnly]
         public ActionResult List()
         {
-            var source = _accountService.GetAll().OrderBy(x => x.CreateTime);
+            var source = _accountService.GetAll();
             return View(source);
         }
 
@@ -55,7 +55,7 @@ namespace MoneyTemplateMVC.Controllers
             }
             this._accountService.CreateMoneyBilling(viewModel);
 
-            var source = this._accountService.GetAll().OrderBy(x=>x.CreateTime);
+            var source = this._accountService.GetAll();
 
             return View("List", source);
         }
