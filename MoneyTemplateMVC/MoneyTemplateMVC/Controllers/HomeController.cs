@@ -64,7 +64,8 @@ namespace MoneyTemplateMVC.Controllers
         public ActionResult IsTodayBefore(DateTime createTime)
         {
             bool isValidate = DateTime.Compare(DateTime.Today, createTime) >= 0;
-            return Json(isValidate, JsonRequestBehavior.AllowGet);
+            return Json(isValidate ? "ture" : "輸入日期必須小於今天",
+                JsonRequestBehavior.AllowGet);
         }
     }
 }

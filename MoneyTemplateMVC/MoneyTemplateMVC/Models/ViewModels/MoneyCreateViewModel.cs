@@ -15,7 +15,7 @@ namespace MoneyTemplateMVC.Models.ViewModels
         public CategoryType Category { get; set; }
 
         [Required]
-        [Remote("IsTodayBefore", "Home", ErrorMessage ="輸入日期必須小於今天")]
+        [Remote("IsTodayBefore", "Home")]
         [Display(Name = "日期")]
         public DateTime CreateTime { get; set; }
 
