@@ -1,5 +1,5 @@
 ﻿using MoneyTemplateMVC.Enum;
-
+using MoneyTemplateMVC.Validators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -15,12 +15,12 @@ namespace MoneyTemplateMVC.Models.ViewModels
         public CategoryType Category { get; set; }
 
         [Required]
-        [Remote("IsTodayBefore", "Home")]
+        [RemoteDoublePlus("IsTodayBefore", "Home", "")]
         [Display(Name = "日期")]
         public DateTime CreateTime { get; set; }
 
         [Required]
-        [Range(0,int.MaxValue)]
+        [Range(0, int.MaxValue)]
         [Display(Name = "金額")]
         public decimal Amount { get; set; }
 
