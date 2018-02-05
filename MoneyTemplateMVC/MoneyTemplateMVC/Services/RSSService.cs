@@ -33,11 +33,16 @@ namespace MoneyTemplateMVC.Services
         /// <returns></returns>
         public SyndicationFeed GetFeedData()
         {
-            UrlHelper url = new UrlHelper();
+            var scheme = HttpContext.Current.Request.Url.Scheme;
+            var host = HttpContext.Current.Request.Headers["host"];
+            var feedAlternateLink = $"{scheme}://{host}";
+
+
+
             var feed = new SyndicationFeed(
-                "北風測試資料",
-                "訂單RSS！",
-                new Uri(url.Action("Rss", "Feed", null, "http")));
+                "Account Book",
+                "帳單 RSS！",
+                new Uri(feedAlternateLink));
 
             var items = new List<SyndicationItem>();
 
@@ -45,14 +50,16 @@ namespace MoneyTemplateMVC.Services
                 .GetAll()
                 .OrderByDescending(x => x.Dateee);
 
-            foreach (var model in models)
+            foreach (AccountBook model in models)
             {
+
+
                 var item = new SyndicationItem(
-                    model.Remarkkk,
-                    model.Amounttt.ToString(),
-                    new Uri(url.Action("Detail", "Order", new { id = model.Id }, "http")),
-                    "ID",
-                    DateTime.Now);
+                      model.Remarkkk,
+                      model.Amounttt.ToString(),
+                      new Uri($"{feedAlternateLink}/Home/Details?id={model.Id}"),
+                      "ID",
+                      DateTime.Now);
 
                 items.Add(item);
             }

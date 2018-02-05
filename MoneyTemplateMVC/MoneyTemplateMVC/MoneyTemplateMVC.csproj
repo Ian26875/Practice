@@ -254,9 +254,9 @@
     <Content Include="Views\Home\List.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeFormat.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MoneyFomat.cshtml" />
+    <Content Include="Views\Feeds\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Feeds\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
