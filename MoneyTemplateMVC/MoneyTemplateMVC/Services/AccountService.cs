@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MoneyTemplateMVC.Helper;
 
 namespace MoneyTemplateMVC.Services
 {
@@ -63,7 +64,7 @@ namespace MoneyTemplateMVC.Services
             new MoneyViewModel
             {
                 Amount = x.Amounttt,
-                Category = (CategoryType)System.Enum.Parse(typeof(CategoryType), x.Categoryyy.ToString()),
+                Category = x.Categoryyy.ParseEnum<CategoryType>(),
                 CreateTime = x.Dateee
             })
             .OrderBy(x => x.CreateTime)
