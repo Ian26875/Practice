@@ -199,6 +199,7 @@
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\Interface\IAccountService.cs" />
+    <Compile Include="Validators\RemoteDoublePlusAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\SkillTreeHomework.mdf" />
@@ -250,7 +251,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Helper\" />
-    <Folder Include="Validators\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
