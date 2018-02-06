@@ -183,6 +183,8 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Areas\Background\BackgroundAreaRegistration.cs" />
+    <Compile Include="Areas\Background\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Background\Models\ViewModels\LoginViewModel.cs" />
     <Compile Include="Controllers\FeedsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="CustomResults\RssResult.cs" />
@@ -256,11 +258,10 @@
     <Content Include="Views\Home\List.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeFormat.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MoneyFomat.cshtml" />
-    <Content Include="Views\Feeds\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Background\Controllers\" />
-    <Folder Include="Areas\Background\Models\" />
+    <Folder Include="Areas\Background\Views\Account\" />
+    <Folder Include="Areas\Background\Views\Member\" />
     <Folder Include="Areas\Background\Views\Shared\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
