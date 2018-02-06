@@ -228,6 +228,9 @@
     </Content>
     <Content Include="App_Code\Amount.cshtml" />
     <Content Include="Areas\Background\Views\web.config" />
+    <Content Include="Areas\Background\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Background\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Background\Views\Account\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -260,9 +263,7 @@
     <Content Include="Views\Shared\DisplayTemplates\MoneyFomat.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Background\Views\Account\" />
     <Folder Include="Areas\Background\Views\Member\" />
-    <Folder Include="Areas\Background\Views\Shared\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
