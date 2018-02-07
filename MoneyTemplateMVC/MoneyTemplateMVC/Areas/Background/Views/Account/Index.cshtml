@@ -6,10 +6,10 @@
 
 <h2>Login</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Login", "Account", new { area = "Background" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Login Admin</h4>
         <hr />

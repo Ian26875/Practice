@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoneyTemplateMVC.Areas.Background.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,7 +15,14 @@ namespace MoneyTemplateMVC.Areas.Background.Controllers
             return View();
         }
 
+        public ActionResult Login(LoginViewModel loginView)
+        {
+            if (ModelState.IsValid == false)
+            {
+                return View("Index", loginView);
+            }
+            return View();
+        }
 
-        
     }
 }
