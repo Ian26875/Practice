@@ -21,7 +21,7 @@ namespace MoneyTemplateMVC.Areas.Background.Controllers
             {
                 return View("Index", loginView);
             }
-            return View();
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
     }

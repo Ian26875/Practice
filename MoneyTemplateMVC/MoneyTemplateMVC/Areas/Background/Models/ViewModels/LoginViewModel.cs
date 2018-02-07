@@ -12,6 +12,8 @@ namespace MoneyTemplateMVC.Areas.Background.Models.ViewModels
         [StringLength(16)]
         public string Account { get; set; }
 
+
+        [DataType(DataType.Password)]
         [Display(Name = "密碼")]
         [StringLength(16)]
         public string Password { get; set; }

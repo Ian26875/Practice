@@ -263,7 +263,6 @@
     <Content Include="Views\Shared\DisplayTemplates\MoneyFomat.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Background\Views\Member\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
