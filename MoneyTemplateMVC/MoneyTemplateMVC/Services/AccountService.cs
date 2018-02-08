@@ -53,9 +53,26 @@ namespace MoneyTemplateMVC.Services
 
         }
 
+        /// <summary>
+        /// Gets the specified identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
         public MoneyEditViewModel Get(Guid id)
         {
-            throw new NotImplementedException();
+            var source = this._accountBookRepository
+                .GetAll()
+                .Single(x => x.Id == id);
+            var entity = new MoneyEditViewModel
+            {
+                Amount = source.Amounttt,
+                Category = source.Categoryyy.ParseEnum<CategoryType>(),
+                DateTime = source.Dateee,
+                Id=source.Id,
+                Remark=source.Remarkkk
+
+            };
+            return entity;
         }
 
         /// <summary>
@@ -77,9 +94,21 @@ namespace MoneyTemplateMVC.Services
             return viewModels;
         }
 
+        /// <summary>
+        /// Updates the money billing.
+        /// </summary>
+        /// <param name="editViewModel">The edit view model.</param>
         public void UpdateMoneyBilling(MoneyEditViewModel editViewModel)
         {
-            throw new NotImplementedException();
+            var entity = new AccountBook
+            {
+                Id = editViewModel.Id,
+                Dateee = editViewModel.DateTime,
+                Amounttt = Convert.ToInt32(editViewModel.Amount),
+                Categoryyy = (int)editViewModel.Category,
+                Remarkkk = editViewModel.Remark
+            };
+            this._accountBookRepository.Update(entity);
         }
     }
 }

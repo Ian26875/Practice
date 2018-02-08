@@ -10,13 +10,15 @@ namespace MoneyTemplateMVC.Models.ViewModels
 {
     public class MoneyEditViewModel
     {
+        public Guid Id { get; set; }
+
         [Display(Name = "類別")]
         public CategoryType Category { get; set; }
 
         [Required]
         [RemoteDoublePlus("IsTodayBefore", "Home", "")]
         [Display(Name = "日期")]
-        public DateTime CreateTime { get; set; }
+        public DateTime DateTime { get; set; }
 
         [Required]
         [Range(0, int.MaxValue)]
