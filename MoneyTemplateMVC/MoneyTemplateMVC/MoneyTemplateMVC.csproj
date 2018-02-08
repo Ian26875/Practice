@@ -194,6 +194,7 @@
     </Compile>
     <Compile Include="Helper\EnumHelper.cs" />
     <Compile Include="Models\AccountBook.cs" />
+    <Compile Include="Models\Member.cs" />
     <Compile Include="Models\ViewModels\MoneyCreateViewModel.cs" />
     <Compile Include="Models\ViewModels\MoneyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
