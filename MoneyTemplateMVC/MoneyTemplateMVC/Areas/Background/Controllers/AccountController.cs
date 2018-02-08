@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using MoneyTemplateMVC.Areas.Background.Models.ViewModels;
+using MoneyTemplateMVC.Controllers;
 using MoneyTemplateMVC.Services.Interface;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,7 @@ using System.Web.Mvc;
 
 namespace MoneyTemplateMVC.Areas.Background.Controllers
 {
-    [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private readonly IMemberService _memberService;
 

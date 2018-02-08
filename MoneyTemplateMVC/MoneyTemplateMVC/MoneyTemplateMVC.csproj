@@ -210,6 +210,7 @@
     <Compile Include="Areas\Background\BackgroundAreaRegistration.cs" />
     <Compile Include="Areas\Background\Controllers\AccountController.cs" />
     <Compile Include="Areas\Background\Models\ViewModels\LoginViewModel.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\FeedsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="CustomResults\RssResult.cs" />
@@ -292,6 +293,7 @@
     <Content Include="Views\Shared\DisplayTemplates\MoneyFomat.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Base\" />
     <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>

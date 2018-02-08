@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace MoneyTemplateMVC.Controllers
 {
-    public class FeedsController : Controller
+    public class FeedsController : BaseController
     {
         private IRSSService _rssService;
 

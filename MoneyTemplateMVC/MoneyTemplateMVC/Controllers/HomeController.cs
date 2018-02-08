@@ -8,36 +8,40 @@ using System.Web.Mvc;
 
 namespace MoneyTemplateMVC.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
 
 
         private IAccountService _accountService;
+        public HomeController()
+        {
+
+        }
 
         public HomeController(IAccountService accountService)
         {
             this._accountService = accountService;
         }
-
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();
         }
-
+        [AllowAnonymous]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
-
+        [AllowAnonymous]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
-
+        [AllowAnonymous]
         [ChildActionOnly]
         public ActionResult List()
         {
