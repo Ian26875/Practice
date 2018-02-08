@@ -1,4 +1,5 @@
 ﻿using MoneyTemplateMVC.Areas.Background.Models.ViewModels;
+using MoneyTemplateMVC.Services.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,14 @@ namespace MoneyTemplateMVC.Areas.Background.Controllers
 {
     public class AccountController : Controller
     {
-        // GET: Background/Account
+        private readonly IMemberService _memberService;
+
+        public AccountController(IMemberService memberService)
+        {
+            this._memberService = memberService;
+        }
+
+
         public ActionResult Index()
         {
             return View();
