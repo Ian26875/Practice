@@ -215,6 +215,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="CustomResults\RssResult.cs" />
     <Compile Include="Enum\CategoryType.cs" />
+    <Compile Include="Filter\AuthorizePlusAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
