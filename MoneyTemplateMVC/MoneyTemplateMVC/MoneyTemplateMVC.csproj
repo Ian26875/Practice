@@ -207,7 +207,9 @@
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\Interface\IAccountService.cs" />
+    <Compile Include="Services\Interface\IMemberService.cs" />
     <Compile Include="Services\Interface\IRSSService.cs" />
+    <Compile Include="Services\MemberService.cs" />
     <Compile Include="Services\RSSService.cs" />
     <Compile Include="Validators\RemoteDoublePlusAttribute.cs" />
   </ItemGroup>
