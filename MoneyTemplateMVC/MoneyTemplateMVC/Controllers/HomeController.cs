@@ -79,7 +79,16 @@ namespace MoneyTemplateMVC.Controllers
 
         public ActionResult Edit(Guid id)
         {
-            return View();
+            var viewModel = this._accountService.Get(id);
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(MoneyEditViewModel viewModel)
+        {
+            this._accountService.UpdateMoneyBilling(viewModel);
+            return RedirectToAction("Index");
         }
     }
 }

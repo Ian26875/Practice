@@ -15,11 +15,13 @@ namespace MoneyTemplateMVC.Models.ViewModels
         [Display(Name = "類別")]
         public CategoryType Category { get; set; }
 
+        [DataType(DataType.DateTime)]
         [Required]
         [RemoteDoublePlus("IsTodayBefore", "Home", "")]
         [Display(Name = "日期")]
         public DateTime DateTime { get; set; }
 
+        [DataType(DataType.Currency)]
         [Required]
         [Range(0, int.MaxValue)]
         [Display(Name = "金額")]

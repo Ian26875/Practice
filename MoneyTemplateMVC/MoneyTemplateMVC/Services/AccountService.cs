@@ -85,6 +85,7 @@ namespace MoneyTemplateMVC.Services
             var viewModels = source.Select(x =>
             new MoneyViewModel
             {
+                Id=x.Id,
                 Amount = x.Amounttt,
                 Category = x.Categoryyy.ParseEnum<CategoryType>(),
                 CreateTime = x.Dateee
