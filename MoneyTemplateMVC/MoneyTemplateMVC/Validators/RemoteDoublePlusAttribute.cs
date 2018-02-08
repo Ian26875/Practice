@@ -31,28 +31,32 @@ namespace MoneyTemplateMVC.Validators
         }
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var additionalFields = this.AdditionalFields.Split(',');
+          
             var propValues = new List<object> { value };
-
-            foreach (var additionalField in additionalFields)
+            if (string.IsNullOrWhiteSpace(this.AdditionalFields) == false)
             {
-                var prop = validationContext.ObjectType.GetProperty(additionalField);
-                if (prop != null)
+                var additionalFields = this.AdditionalFields.Split(',');
+                foreach (var additionalField in additionalFields)
                 {
-                    var propValue = prop.GetValue(validationContext.ObjectInstance, null);
-                    propValues.Add(propValue);
-                }
-                else
-                {
-                    propValues.Add(null);
+                    var prop = validationContext.ObjectType.GetProperty(additionalField);
+                    if (prop != null)
+                    {
+                        var propValue = prop.GetValue(validationContext.ObjectInstance, null);
+                        propValues.Add(propValue);
+                    }
+                    else
+                    {
+                        propValues.Add(null);
+                    }
                 }
             }
-
             var controllerType = Assembly.GetExecutingAssembly().GetTypes().FirstOrDefault(d => d.Name.ToLower() == (this._controller + "Controller").ToLower());
 
             if (controllerType == null) return null;
 
-            var instance = Activator.CreateInstance(controllerType);
+           
+            var instance = DependencyResolver.Current.GetService(controllerType);
+            //var instance = Activator.CreateInstance(controllerType, objs);
 
             var method = controllerType.GetMethod(this._action);
 

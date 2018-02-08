@@ -70,7 +70,7 @@ namespace MoneyTemplateMVC
 
             container.RegisterType<IConnectionFactory, ConnectionFactory>
             (
-                new TransientLifetimeManager(),
+                new HierarchicalLifetimeManager(),
                 new InjectionConstructor(connectionString, providerName)
             );
 

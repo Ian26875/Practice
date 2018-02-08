@@ -13,10 +13,7 @@ namespace MoneyTemplateMVC.Controllers
 
 
         private IAccountService _accountService;
-        public HomeController()
-        {
-
-        }
+      
 
         public HomeController(IAccountService accountService)
         {
