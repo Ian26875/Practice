@@ -11,5 +11,7 @@ namespace MoneyTemplateMVC.Services.Interface
     {
         IList<MoneyViewModel> GetAll();
         void CreateMoneyBilling(MoneyCreateViewModel viewModel);
+        MoneyEditViewModel Get(Guid id);
+        void UpdateMoneyBilling(MoneyEditViewModel editViewModel);
     }
 }

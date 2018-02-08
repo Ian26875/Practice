@@ -53,6 +53,11 @@ namespace MoneyTemplateMVC.Services
 
         }
 
+        public MoneyEditViewModel Get(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Gets all.
         /// </summary>
@@ -70,6 +75,11 @@ namespace MoneyTemplateMVC.Services
             .OrderBy(x => x.CreateTime)
             .ToList();
             return viewModels;
+        }
+
+        public void UpdateMoneyBilling(MoneyEditViewModel editViewModel)
+        {
+            throw new NotImplementedException();
         }
     }
 }
