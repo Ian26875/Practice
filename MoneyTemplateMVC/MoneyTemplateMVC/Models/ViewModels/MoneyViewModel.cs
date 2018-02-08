@@ -9,6 +9,8 @@ namespace MoneyTemplateMVC.Models.ViewModels
 {
     public class MoneyViewModel
     {
+        public Guid Id { get; set; }
+
         [Display(Name = "類別")]
         public CategoryType Category { get; set; }
 

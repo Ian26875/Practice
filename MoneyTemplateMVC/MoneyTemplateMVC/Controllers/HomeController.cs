@@ -76,5 +76,10 @@ namespace MoneyTemplateMVC.Controllers
             return Json(isValidate ? "true" : "輸入日期必須小於今天",
                 JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult Edit(Guid id)
+        {
+            return View();
+        }
     }
 }
