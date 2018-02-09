@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<MoneyTemplateMVC.Models.ViewModels.MoneyViewModel>
+@using MoneyTemplateMVC.Helper;
 @{
     Layout = "";
 }
@@ -17,31 +18,31 @@
             @Html.DisplayNameFor(model => model.Amount)
         </th>
         <th>
-            
+
         </th>
     </tr>
     @{
         int serialNumber = 1;
         foreach (var item in Model)
         {
-    <tr>
-        <td>
-            @serialNumber
-        </td>
-        <td>
-            @*@Html.DisplayFor(modelItem => item.Category)*@
-            @Amount.DispalyCategoryColor(item.Category)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreateTime, "DateTimeFormat")
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amount, "MoneyFomat")
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id})
-        </td>
-    </tr>
+            <tr>
+                <td>
+                    @serialNumber
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Category)*@
+                    @Amount.DispalyCategoryColor(item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateTime, "DateTimeFormat")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount, "MoneyFomat")
+                </td>
+                <td>
+                    @Html.ActionLinkAuthorized("Edit", "Edit", new { id = item.Id },"Admin")
+                </td>
+            </tr>
             serialNumber++;
         }
     }
