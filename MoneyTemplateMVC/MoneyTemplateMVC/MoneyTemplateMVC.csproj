@@ -219,6 +219,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\AuthLinkHelper.cs" />
     <Compile Include="Helper\EnumHelper.cs" />
     <Compile Include="Models\AccountBook.cs" />
     <Compile Include="Models\Member.cs" />

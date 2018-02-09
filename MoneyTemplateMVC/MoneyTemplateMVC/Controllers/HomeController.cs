@@ -46,7 +46,7 @@ namespace MoneyTemplateMVC.Controllers
 
             return View();
         }
-    
+        [AllowAnonymous]
         [ChildActionOnly]
         public ActionResult List()
         {
