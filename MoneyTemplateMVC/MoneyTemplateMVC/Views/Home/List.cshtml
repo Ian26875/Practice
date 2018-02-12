@@ -34,13 +34,13 @@
                     @Amount.DispalyCategoryColor(item.Category)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CreateTime, "DateTimeFormat")
+                    @Html.DisplayFor(modelItem => item.CreateTime, null, new { Format = "yyyy年MM月dd日" })
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Amount, "MoneyFomat")
                 </td>
                 <td>
-                    @Html.ActionLinkAuthorized("Edit", "Edit", new { id = item.Id },"Admin")
+                    @Html.ActionLinkAuthorized("Edit", "Edit", new { id = item.Id }, "Admin")
                 </td>
             </tr>
             serialNumber++;

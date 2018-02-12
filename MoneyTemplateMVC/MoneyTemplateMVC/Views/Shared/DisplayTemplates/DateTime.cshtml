@@ -1,0 +1,9 @@
+﻿@model DateTime?
+
+@if (Model.HasValue)
+{
+    var format = ViewData["Format"]?.ToString() ?? "yyyy-MM-dd";
+
+    @Model.Value.ToString(format);
+}
+
