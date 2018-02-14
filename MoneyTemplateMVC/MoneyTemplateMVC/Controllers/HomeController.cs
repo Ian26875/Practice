@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace MoneyTemplateMVC.Controllers
 {
+   
     public class HomeController : BaseController
     {
 
@@ -46,9 +47,10 @@ namespace MoneyTemplateMVC.Controllers
 
             return View();
         }
+
         [AllowAnonymous]
         [ChildActionOnly]
-        public ActionResult List()
+        public ActionResult List(int? year,int? month)
         {
             var source = _accountService.GetAll();
             return View(source);
@@ -80,6 +82,10 @@ namespace MoneyTemplateMVC.Controllers
         public ActionResult Edit(Guid id)
         {
             var viewModel = this._accountService.Get(id);
+            if (viewModel == null)
+            {
+                return HttpNotFound();
+            }
             return View(viewModel);
         }
 
