@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MoneyTemplateMVC.Helper;
+using DapperExtensions;
 
 namespace MoneyTemplateMVC.Services
 {
@@ -68,8 +69,8 @@ namespace MoneyTemplateMVC.Services
                 Amount = source.Amounttt,
                 Category = source.Categoryyy.ParseEnum<CategoryType>(),
                 DateTime = source.Dateee,
-                Id=source.Id,
-                Remark=source.Remarkkk
+                Id = source.Id,
+                Remark = source.Remarkkk
 
             };
             return entity;
@@ -85,13 +86,49 @@ namespace MoneyTemplateMVC.Services
             var viewModels = source.Select(x =>
             new MoneyViewModel
             {
-                Id=x.Id,
+                Id = x.Id,
                 Amount = x.Amounttt,
                 Category = x.Categoryyy.ParseEnum<CategoryType>(),
                 CreateTime = x.Dateee
             })
             .OrderBy(x => x.CreateTime)
             .ToList();
+            return viewModels;
+        }
+
+        public IList<MoneyViewModel> GetPages(int? year, int? month)
+        {
+            var predicateGroup = new PredicateGroup
+            {
+                Operator = GroupOperator.And,
+                Predicates = new List<IPredicate>()
+            };
+            if (year.HasValue)
+            {
+                predicateGroup.Predicates.Add(
+                    Predicates.Field<AccountBook>(f => f.Dateee.Year, Operator.Eq, year)
+                    );
+            }
+            if (month.HasValue)
+            {
+                predicateGroup.Predicates.Add(
+                    Predicates.Field<AccountBook>(f => f.Dateee.Month, Operator.Eq, month)
+                    );
+            }
+            var sort = new List<ISort>
+            {
+                Predicates.Sort<AccountBook>(x=>x.Dateee)
+            };
+            var source = this._accountBookRepository.GetList(predicateGroup, sort);
+            var viewModels = source.Select(x =>
+            new MoneyViewModel
+            {
+                Id = x.Id,
+                Amount = x.Amounttt,
+                Category = x.Categoryyy.ParseEnum<CategoryType>(),
+                CreateTime = x.Dateee
+            }).ToList();
+          
             return viewModels;
         }
 
