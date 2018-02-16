@@ -8,7 +8,7 @@ using DapperExtensions;
 
 namespace MoneyTemplateMVC.Repositories
 {
-    public class GeneralRepository<T> :RepositoryBase, IGeneralRepository<T> where T : class, new()
+    public class GeneralRepository<T> : RepositoryBase, IGeneralRepository<T> where T : class, new()
     {
         public GeneralRepository(IUnitOfWork unitOfWork)
             : base(unitOfWork)
@@ -23,13 +23,13 @@ namespace MoneyTemplateMVC.Repositories
 
         public T Find(object keyValues)
         {
-            var source=DbConnection.Get<T>(keyValues);
+            var source = DbConnection.Get<T>(keyValues);
             return source;
         }
 
         public IList<T> GetAll()
         {
-            var source=DbConnection.GetList<T>();
+            var source = DbConnection.GetList<T>();
             return source.ToList();
         }
 
@@ -41,6 +41,18 @@ namespace MoneyTemplateMVC.Repositories
         public void Update(T entity)
         {
             DbConnection.Update(entity);
+        }
+
+        public IList<T> GetPage(object predicate, IList<ISort> sort, int page, int resultsPerPage)
+        {
+            var source = DbConnection.GetPage<T>(predicate, sort, page, resultsPerPage).ToList();
+            return source;
+        }
+
+        public IList<T> GetList(object predicate, IList<ISort> sort = null)
+        {
+            var source = DbConnection.GetList<T>(predicate, sort).ToList();
+            return source;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DapperExtensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,7 @@ namespace MoneyTemplateMVC.Repositories.Interface
         void Update(T entity);
         void Delete(T entity);
         T Find(object keyValues);
+        IList<T> GetPage(object predicate, IList<ISort> sort, int page, int resultsPerPage);
+        IList<T> GetList(object predicate, IList<ISort> sort = null);
     }
 }
