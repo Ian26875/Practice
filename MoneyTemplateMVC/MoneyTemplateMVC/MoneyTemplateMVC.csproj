@@ -282,6 +282,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\pickadate.js" />
     <Content Include="Scripts\pickadate\legacy.js" />
     <Content Include="Scripts\pickadate\picker.date.js" />
     <Content Include="Scripts\pickadate\picker.js" />
@@ -358,10 +359,10 @@
     <Content Include="Views\Shared\DisplayTemplates\MoneyFomat.cshtml" />
     <Content Include="Views\Home\Default.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Shared\EditorTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
