@@ -8,13 +8,9 @@ using System.Web.Mvc;
 
 namespace MoneyTemplateMVC.Controllers
 {
-   
     public class HomeController : BaseController
     {
-
-
-        private IAccountService _accountService;
-      
+        private IAccountService _accountService;   
 
         public HomeController(IAccountService accountService)
         {
@@ -26,7 +22,7 @@ namespace MoneyTemplateMVC.Controllers
         {
             return View();
         }
-
+        [Route("skilltree/{year}/{month:range(1,12)}")]
         [AllowAnonymous]
         public ActionResult Index()
         {
@@ -47,12 +43,12 @@ namespace MoneyTemplateMVC.Controllers
 
             return View();
         }
-
+        [Route("skilltree/{year}/{month:range(1,12)}")]
         [AllowAnonymous]
         [ChildActionOnly]
         public ActionResult List(int? year,int? month)
         {
-            var source = _accountService.GetAll();
+            var source = _accountService.GetPages(year, month);
             return View(source);
         }
 

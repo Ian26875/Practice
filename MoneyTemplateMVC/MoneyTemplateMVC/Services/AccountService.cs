@@ -98,28 +98,26 @@ namespace MoneyTemplateMVC.Services
 
         public IList<MoneyViewModel> GetPages(int? year, int? month)
         {
-            var predicateGroup = new PredicateGroup
+            IBetweenPredicate predicates = null;
+
+            if (year.HasValue && month.HasValue)
             {
-                Operator = GroupOperator.And,
-                Predicates = new List<IPredicate>()
-            };
-            if (year.HasValue)
-            {
-                predicateGroup.Predicates.Add(
-                    Predicates.Field<AccountBook>(f => f.Dateee.Year, Operator.Eq, year)
-                    );
+                DateTime monthStart=new DateTime(year.Value, month.Value, 1);
+                DateTime monthEnd = monthStart.AddMonths(1).AddDays(-1);
+                BetweenValues values = new BetweenValues
+                {
+                    Value1 = monthStart,
+                    Value2 = monthEnd,
+                };
+                predicates = Predicates.Between<AccountBook>(f => f.Dateee, values);
             }
-            if (month.HasValue)
-            {
-                predicateGroup.Predicates.Add(
-                    Predicates.Field<AccountBook>(f => f.Dateee.Month, Operator.Eq, month)
-                    );
-            }
+
+
             var sort = new List<ISort>
             {
                 Predicates.Sort<AccountBook>(x=>x.Dateee)
             };
-            var source = this._accountBookRepository.GetList(predicateGroup, sort);
+            var source = this._accountBookRepository.GetList(predicates, sort);
             var viewModels = source.Select(x =>
             new MoneyViewModel
             {
@@ -128,7 +126,7 @@ namespace MoneyTemplateMVC.Services
                 Category = x.Categoryyy.ParseEnum<CategoryType>(),
                 CreateTime = x.Dateee
             }).ToList();
-          
+
             return viewModels;
         }
 
