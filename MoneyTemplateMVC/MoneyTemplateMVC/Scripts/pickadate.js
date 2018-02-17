@@ -1,4 +1,7 @@
 ﻿$(function () {
-    $("[data-datetimepicker]").pickadate();
+    $("[data-datetimepicker]").pickadate({
+        selectYears: true,
+        selectMonths: true
+    });
 
 });

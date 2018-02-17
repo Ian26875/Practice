@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     <link href="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Scripts/pickadate/themes/default.css" rel="stylesheet" />
+    <link href="~/Scripts/pickadate/themes/default.date.css" rel="stylesheet" />
+    <link href="~/Scripts/pickadate/themes/default.time.css" rel="stylesheet" />
+    @*<link href="~/Scripts/pickadate/themes/rtl.css" rel="stylesheet" />*@
     @RenderSection("css", required: false)
 </head>
 <body>
@@ -39,6 +43,11 @@
     <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/pickadate/picker.js"></script>
+    <script src="~/Scripts/pickadate/legacy.js"></script>
+    <script src="~/Scripts/pickadate/picker.date.js"></script>
+    <script src="~/Scripts/pickadate.js"></script>
+    <script src="~/Scripts/pickadate/translations/zh_TW.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
