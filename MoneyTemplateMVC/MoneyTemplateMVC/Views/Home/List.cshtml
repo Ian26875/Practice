@@ -1,7 +1,11 @@
-﻿@model IEnumerable<MoneyTemplateMVC.Models.ViewModels.MoneyViewModel>
+﻿@model PagedList.IPagedList<MoneyTemplateMVC.Models.ViewModels.MoneyViewModel>
 @using MoneyTemplateMVC.Helper;
 @{
     Layout = "";
+}
+@section css{
+
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
 }
 <table class="table table-bordered table-hover">
     <tr>
@@ -9,13 +13,13 @@
             #
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Category)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Category)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreateTime)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().CreateTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Amount)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Amount)
         </th>
         <th>
 
@@ -47,5 +51,6 @@
         }
     }
 </table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { pageNumber = page }))
 
 

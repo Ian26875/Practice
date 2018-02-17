@@ -102,20 +102,22 @@ namespace MoneyTemplateMVC.Services
 
             if (year.HasValue && month.HasValue)
             {
-                DateTime monthStart=new DateTime(year.Value, month.Value, 1);
+                //每月一號
+                DateTime monthStart = new DateTime(year.Value, month.Value, 1);
+                //每月最後一天
                 DateTime monthEnd = monthStart.AddMonths(1).AddDays(-1);
-                BetweenValues values = new BetweenValues
+                BetweenValues betweenValues = new BetweenValues
                 {
                     Value1 = monthStart,
                     Value2 = monthEnd,
                 };
-                predicates = Predicates.Between<AccountBook>(f => f.Dateee, values);
+                predicates = Predicates.Between<AccountBook>(f => 
+                f.Dateee, betweenValues);
             }
-
-
             var sort = new List<ISort>
             {
-                Predicates.Sort<AccountBook>(x=>x.Dateee)
+                Predicates.Sort<AccountBook>(x=>x.Dateee),
+                Predicates.Sort<AccountBook>(x=>x.Categoryyy)
             };
             var source = this._accountBookRepository.GetList(predicates, sort);
             var viewModels = source.Select(x =>

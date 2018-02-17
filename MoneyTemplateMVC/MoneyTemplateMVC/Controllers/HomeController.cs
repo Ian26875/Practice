@@ -5,12 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using System.Web.Helpers;
 
 namespace MoneyTemplateMVC.Controllers
 {
     public class HomeController : BaseController
     {
-        private IAccountService _accountService;   
+        private const string MoneyListCacheName = "MoneyList";
+        private IAccountService _accountService;
 
         public HomeController(IAccountService accountService)
         {
@@ -46,11 +49,26 @@ namespace MoneyTemplateMVC.Controllers
         [Route("skilltree/{year}/{month:range(1,12)}")]
         [AllowAnonymous]
         [ChildActionOnly]
-        public ActionResult List(int? year,int? month)
+        public ActionResult List(int? year, int? month, int pageNumber = 1, int pageSize = 20)
         {
-            var source = _accountService.GetPages(year, month);
-            return View(source);
+
+            var source = GetMoneyListSource(year, month);
+            var pageList = source.ToPagedList(pageNumber, pageSize);
+            return View(pageList);
         }
+
+        private IList<MoneyViewModel> GetMoneyListSource(int? year, int? month)
+        {
+          
+            IList<MoneyViewModel> source = WebCache.Get(MoneyListCacheName);
+            if (source == null)
+            {
+                source = _accountService.GetPages(year, month);
+                WebCache.Set(MoneyListCacheName, source);
+            }
+            return source;
+        }
+        private void ClearCache() => WebCache.Remove(MoneyListCacheName);
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -62,9 +80,8 @@ namespace MoneyTemplateMVC.Controllers
             }
             this._accountService.CreateMoneyBilling(viewModel);
 
-            var source = this._accountService.GetAll();
-
-            return PartialView("List", source);
+            this.ClearCache();
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -90,6 +107,7 @@ namespace MoneyTemplateMVC.Controllers
         public ActionResult Edit(MoneyEditViewModel viewModel)
         {
             this._accountService.UpdateMoneyBilling(viewModel);
+            this.ClearCache();
             return RedirectToAction("Index");
         }
     }
