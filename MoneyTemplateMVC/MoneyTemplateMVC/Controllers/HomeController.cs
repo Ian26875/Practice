@@ -63,7 +63,7 @@ namespace MoneyTemplateMVC.Controllers
             IList<MoneyViewModel> source = WebCache.Get(MoneyListCacheName);
             if (source == null)
             {
-                source = _accountService.GetPages(year, month);
+                source = _accountService.GetMonthData(year, month);
                 WebCache.Set(MoneyListCacheName, source);
             }
             return source;

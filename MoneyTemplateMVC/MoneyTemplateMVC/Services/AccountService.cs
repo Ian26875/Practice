@@ -96,7 +96,7 @@ namespace MoneyTemplateMVC.Services
             return viewModels;
         }
 
-        public IList<MoneyViewModel> GetPages(int? year, int? month)
+        public IList<MoneyViewModel> GetMonthData(int? year, int? month)
         {
             IBetweenPredicate predicates = null;
 
