@@ -1,11 +1,14 @@
-﻿@model DateTime?
-
+﻿
+@model DateTime?
 @{
-    var value = Model?.ToString("yyyy-MM-dd HH:mm") ?? "";
+    var format = ViewData["Format"]?.ToString() ?? "yyyy-mm-dd";
+
+    var value = Model?.ToString(format) ?? "";
+
 }
 @Html.TextBox("", value, new
 {
     @class = "form-control",
     data_datetimepicker = "y",
-    data_date_format = "YYYY-MM-dd HH:mm",
+    data_value = format,
 })

@@ -4,6 +4,6 @@
 {
     var format = ViewData["Format"]?.ToString() ?? "yyyy-MM-dd";
 
-    @Model.Value.ToString(format);
+    @Model.Value.ToString(ViewData["Format"]?.ToString() ?? "yyyy-MM-dd");
 }
 
